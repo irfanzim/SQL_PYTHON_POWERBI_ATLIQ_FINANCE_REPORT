@@ -1,1 +1,17 @@
+# Ignore SQL dumps
 *.sql
+
+# Python
+__pycache__/
+*.pyc
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Power BI
+*.pbix
+
+# Data
+data/raw/*
+data/processed/*
