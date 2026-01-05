@@ -12,3 +12,14 @@ SELECT
 FROM gdb056.pre_invoice_deductions
 group by CUSTOMER_CODE, FISCAL_YEAR
 HAVING COUNT_ROW>1
+
+/*
+Purpose:
+  check the numeric scale of pre_invoice_discount_pct.
+*/
+
+SELECT
+    MIN(pre_invoice_discount_pct) AS min_pct,
+    MAX(pre_invoice_discount_pct) AS max_pct,
+    AVG(pre_invoice_discount_pct) AS avg_pct
+FROM gdb056.pre_invoice_deductions;
