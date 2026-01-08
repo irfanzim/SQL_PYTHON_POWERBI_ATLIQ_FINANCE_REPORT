@@ -1,20 +1,16 @@
 /*
 View Name:
-  vw_fact_sales_monthly_fy
+  vw_sales_with_fiscal_year
 Purpose:
-  Provide a clean, reusable version of fact_sales_monthly that includes
+  Provide a clean, reusable version of vw_actual_forecast_sales that includes
   the official fiscal_year derived from date (FY starts in September).
 
 Fiscal Year Rule:
   - If MONTH(date) >= 9 (Sep–Dec): fiscal_year = YEAR(date) + 1
   - Else (Jan–Aug):               fiscal_year = YEAR(date)
   
-
-Why:
-  This creates a consistent fiscal_year key that can be used to join
-  to tables like gross_price(product_code, fiscal_year) and for FY reporting.
 */
-CREATE OR REPLACE VIEW vw_fact_sales_monthly_fy AS
+CREATE OR REPLACE VIEW vw_sales_with_fiscal_year AS
 SELECT
 	f.*,
 	CASE 
@@ -22,4 +18,4 @@ SELECT
         ELSE YEAR(F.DATE)
 	END AS FISCAL_YEAR
 FROM
-	gdb041.fact_sales_monthly f;
+	gdb041.vw_actual_forcast_sales f;

@@ -19,7 +19,7 @@ select
     fiscal_year,
     count(*) as row_count
 from
-	gross_price
+	gdb056.gross_price
 group by
 	product_code,
     fiscal_year
